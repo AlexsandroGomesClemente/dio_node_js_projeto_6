@@ -16,3 +16,10 @@ export const insertPlayer = async (request: Request, response: Response) => {
   const httpResponse = await PlayerServices.insertPlayer(request.body);
   response.status(httpResponse.statusCode).json(httpResponse.body);
 };
+
+export const deletePlayer = async (request: Request, response: Response) => {
+  const httpResponse = await PlayerServices.deletePlayer(
+    Number(request.params.id)
+  );
+  response.status(httpResponse.statusCode).json(httpResponse.body);
+};

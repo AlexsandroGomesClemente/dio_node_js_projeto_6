@@ -45,12 +45,23 @@ export const insertPlayer = async (dataPlayer: InsertPlayerInterface) => {
   const data = await PlayerRepository.insertPlayer(dataToSavePlayer);
   let response: HttpResponseInterface;
 
-
   if (data) {
     response = await HttpRequest.ok(data);
   } else {
     response = await HttpRequest.noContent();
   }
 
+  return response;
+};
+
+export const deletePlayer = async (id: number) => {
+  let response: HttpResponseInterface;
+  const data = await PlayerRepository.deletePlayer(id)
+
+  if (data) {
+    response = await HttpRequest.ok(data);
+  } else {
+    response = await HttpRequest.noContent();
+  }
   return response;
 };

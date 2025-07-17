@@ -310,3 +310,12 @@ export const insertPlayer = async (
   database.push(dataPlayer);
   return dataPlayer;
 };
+
+export const deletePlayer = async (id: number): Promise<PlayerIntaface[]> => {
+  const index = database.findIndex((p) => p.id === id);
+
+  if (index !== -1) {
+    database.splice(index, 1);
+  }
+  return database;
+};
