@@ -319,3 +319,12 @@ export const deletePlayer = async (id: number): Promise<PlayerIntaface[]> => {
   }
   return database;
 };
+
+export const patchPlayer = async (id: number): Promise<PlayerIntaface> => {
+  const index = database.findIndex((p) => p.id === id);
+
+  if (index !== -1) {
+    database[index].name = "Teste Funcionou ";
+  }
+  return database[index];
+};

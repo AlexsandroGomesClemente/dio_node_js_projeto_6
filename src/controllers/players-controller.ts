@@ -23,3 +23,11 @@ export const deletePlayer = async (request: Request, response: Response) => {
   );
   response.status(httpResponse.statusCode).json(httpResponse.body);
 };
+
+export const patchPlayer = async (request: Request, response: Response) => {
+  const httpResponse = await PlayerServices.patchPlayer(
+    Number(request.params.id)
+  );
+
+  response.status(httpResponse.statusCode).json(httpResponse.body);
+};
